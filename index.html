@@ -2,32 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/zemi.css">    
+    <link rel="stylesheet" href="zemi.css">    
 </head>
 <body>
     <div class="text-box">    
         <form id="quiz-form">        
             <input type="text" id="answer"name="answer"placeholder="答えを入力してください"/>
-            <p><button type="submit">送信</button></p>
-            <p id="result"></p>        
+            <p><button type="submit">送信</button></p>        
         </form>
     </div>
+    <div class="overlay"id="overlay"></div>
 
-    <!-- ポップアップ -->
-    <div id="modal"class="modal">
-        <div class="modal-content">
-            <span id="close"class="close">&times;</span>
+    <!-- ポップアップ  -->
+    <div class="stamp-container"id="stamp-container">
+        <img id="stamp-image"src=""alt="結果">
         </div>
-    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded",function() {
-            const form=document.getElementById("quiz-form");
+            const form=document.getElementById("quiz-form");           
             const input=document.getElementById("answer");
             const result=document.getElementById("result");
+            const stampContainer=document.getElementById("stamp-container");
+            const overlay=document.getElementById("overlay");
+            const stampImage=document.getElementById("stamp-image");
 
 
-            //答えの登録
+            // 答えの登録//
             const correctAnswer="正解";
 
             form.addEventListener("submit",function(event) {
@@ -36,18 +37,29 @@
 
                 const userInput = input.value.trim();
 
-                //正誤判定
+                // 正誤判定
                 if (userInput === correctAnswer) {
-                    result.textContent="正解です";
-                    result.style.color="red";
-                    
+                    stampImage.src="画像1.png";                 //正解の時、画像１(clear!)を表示
+                    stampContainer.style.display = "block";
+                    overlay.style.display = "block";                 
+                
                 } else {
-                    result.textContent="不正解です";
-                    result.style.color="blue";
-                }   
+                    stampImage.src="画像2.png";                 //不正解の時、画像２(miss!)を表示
+                    stampContainer.style.display = "block";
+                    overlay.style.display = "block";
+                    input.value = "";  
+                }
+                
+                // クリックすると画像が消える
+                overlay.addEventListener("click", function() {
+                    stampContainer.style.display = "none";
+                    overlay.style.display = "none";
             });
+        }); 
         });
 
-    </script>
+
+</script>
 </body>
 </html>
+
