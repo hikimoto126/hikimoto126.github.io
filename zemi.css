@@ -1,16 +1,13 @@
-@charset "utf-8";
-
-
 /*テキストボックスのデザイン*/
 input{
     width:250px;                                        /*幅*/
     height:20px;                                        /*高さ*/
     padding:10px;
-    font-family:'Courier New', Courier, monospace;      /*フォントの種類*/
-    font-size:13px;
+    font-family:'Courier New', Courier, monospace;      /*!フォントの種類*/
+    font-size:15px;
     text-align:center;                                  /*中央ぞろえ*/
-    border-radius:12px;                                 /*テキストボックスの角を丸くする*/
-    outline-color:#000                                /*外枠*/
+    border-radius:10px;                                 /*テキストボックスの角を丸くする*/
+    outline-color:#000;                               /*外枠*/
 }
 
 /*ボタンのデザイン*/
@@ -20,10 +17,10 @@ button{
    background-color:#c299ff;    
    color:#000;                  
    border:0.8px solid #000;     
-   border-radius:50px;                                          /*ボタンの形を楕円形にする*/
+   border-radius:50px;                                          /*!ボタンの形*/
    font-size:16px;
    outline-color: #000;
-   font-family: 'Courier New', Courier, monospace;              
+   font-family: 'Courier New', Courier, monospace;              /*!フォントの種類*/
    cursor:pointer;                                              /*カーソルが合った時*/
    transition:background-color 0.3 ease,border-color 0.3s ease;
 }
@@ -33,16 +30,16 @@ button:hover{
     background-color:#9057ff;
 }
 
-.stamp-container {
+.result-container {
     position: fixed; /* ポップアップを画面上に固定 */
     top: 50%;
     left: 50%;
-    transform: translate(-30%, -30%); /* 中央に配置 */
+    transform: translate(-30%, -30%); /* !中央に配置 */
     display: none; /* 初期状態では非表示 */
-    z-index: 1000; /* 他の要素の上に表示 */
+    z-index: 1000; /* (他の要素の上に表示)*/
 }
-.stamp-container img {
-    width: 500px;       /*スタンプのサイズを調整 */
+.result-container img {
+    width: 500px;       /*!画像のサイズ */
     height: auto;
 }
 .overlay {
@@ -51,7 +48,8 @@ button:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* 背景を半透明にする */
+    background-color: rgba(0, 0, 0, 0.5); /* 背景を半透明にする */
     display: none; /* 初期状態では非表示 */
    
 }
+
