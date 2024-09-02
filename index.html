@@ -13,9 +13,9 @@
     </div>
     <div class="overlay"id="overlay"></div>
 
-    <!-- ポップアップ  -->
-    <div class="stamp-container"id="stamp-container">
-        <img id="stamp-image"src=""alt="結果">
+    <!-- ポップアップ -->
+    <div class="result-container"id="result-container">
+        <img id="result-image"src=""alt="結果">
         </div>
 
     <script>
@@ -23,13 +23,12 @@
             const form=document.getElementById("quiz-form");           
             const input=document.getElementById("answer");
             const result=document.getElementById("result");
-            const stampContainer=document.getElementById("stamp-container");
+            const resultContainer=document.getElementById("result-container");
             const overlay=document.getElementById("overlay");
-            const stampImage=document.getElementById("stamp-image");
+            const resultImage=document.getElementById("result-image");
 
 
-            // 答えの登録//
-            const correctAnswer="正解";
+            const correctAnswer="正解";                         /*!答えの登録*/
 
             form.addEventListener("submit",function(event) {
                 event.preventDefault();
@@ -37,29 +36,24 @@
 
                 const userInput = input.value.trim();
 
-                // 正誤判定
+                /*正誤判定*/
                 if (userInput === correctAnswer) {
-                    stampImage.src="画像1.png";                 //正解の時、画像１(clear!)を表示
-                    stampContainer.style.display = "block";
+                    resultImage.src="画像1.png";                 /*正解の時、画像１(clear!)を表示*/
+                    resultContainer.style.display = "block";
                     overlay.style.display = "block";                 
                 
                 } else {
-                    stampImage.src="画像2.png";                 //不正解の時、画像２(miss!)を表示
-                    stampContainer.style.display = "block";
+                    resultImage.src="画像2.png";                 /*不正解の時、画像２(miss!)を表示*/
+                    resultContainer.style.display = "block";
                     overlay.style.display = "block";
                     input.value = "";  
                 }
                 
-                // クリックすると画像が消える
+                /*クリックすると画像が消える*/
                 overlay.addEventListener("click", function() {
-                    stampContainer.style.display = "none";
+                    resultContainer.style.display = "none";
                     overlay.style.display = "none";
             });
         }); 
         });
-
-
-</script>
-</body>
-</html>
 
