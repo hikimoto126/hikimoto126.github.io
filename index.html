@@ -7,27 +7,27 @@
 <body>
     <div class="text-box">    
         <form id="quiz-form">        
-            <input type="text" id="answer"name="answer"placeholder="答えを入力してください"/>
-            <p><button type="submit">送信</button></p>
-            <p id="result"></p>        
+            <input type="text" id="answer"name="answer"placeholder="答えを入力してください">
+            <p><button type="submit">送信</button></p>        
         </form>
     </div>
     <div class="overlay"id="overlay"></div>
 
     <!-- ポップアップ -->
-    <div class="stamp-container"id="stamp-container">
-        <img src="hanko.png"alt="ハンコ"class="stamp">
-    </div>
+    <div class="result-container"id="result-container">
+        <img id="result-image"src=""alt="結果">
+        </div>
 
     <script>
         document.addEventListener("DOMContentLoaded",function() {
-            const form=document.getElementById("quiz-form");
-            const input=document.getElementById("answer");
-            const result=document.getElementById("result");
+            const form=document.getElementById("quiz-form");           
+            const input=document.getElementById("answer");            
+            const resultContainer=document.getElementById("result-container");
+            const resultImage=document.getElementById("result-image");
+            const overlay=document.getElementById("overlay");
 
 
-            //答えの登録
-            const correctAnswer="正解";
+            const correctAnswer="正解";                         /*!答えの登録*/
 
             form.addEventListener("submit",function(event) {
                 event.preventDefault();
@@ -35,22 +35,28 @@
 
                 const userInput = input.value.trim();
 
-                //正誤判定
+                /*正誤判定*/
                 if (userInput === correctAnswer) {
-                    result.textContent="Clear!!";
-                    result.style.color="red";
-
-
-                    
-                    
+                    resultImage.src="画像1.png";                /*正解の時、画像１(clear!)を表示*/
+                    resultImage.alt="clear!";                                   
+                
                 } else {
-                    result.textContent="Miss...";
-                    result.style.color="blue";
+                    resultImage.src="画像2.png";                /*不正解の時、画像２(miss!)を表示*/
+                    resultImage.alt="miss!";                 
+                    input.value = "";  
                 }
+
+                resultContainer.style.display = "block";
+                overlay.style.display = "block";
             });
-        }); 
+                
+                /*クリックすると画像が消える*/
+            overlay.addEventListener("click", function() {
+                resultContainer.style.display = "none";
+                overlay.style.display = "none";
+            });
+        });
 
-
-</script>
+    </script>
 </body>
 </html>
