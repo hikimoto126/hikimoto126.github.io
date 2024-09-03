@@ -39,9 +39,9 @@ button:hover{
     z-index: 1000;                                              /* (他の要素の上に表示)*/
 }
 .result-container img {
-    width: 500px;                                               /*!画像のサイズ */
+                                                  /*!画像のサイズ */
     margin:0 auto;
-    max-width:100%;
+    max-width:500%;
     
 }
 .overlay {
