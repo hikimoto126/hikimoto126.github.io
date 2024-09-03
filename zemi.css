@@ -39,8 +39,7 @@ button:hover{
     z-index: 1000;                                              /* (他の要素の上に表示)*/
 }
 .result-container img {
-    max-width: 90vw;                                          /* 画面幅の90%以内で表示 */
-    max-height: 90vh;                                         /* 画面高さの90%以内で表示 */
+
     height: auto;                                             /* 高さを自動調整 */
     width: auto;                                              /* 幅を自動調整 */
     display: block;                                           /* 不要な余白を取り除く */
