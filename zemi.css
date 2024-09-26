@@ -1,58 +1,143 @@
-/*テキストボックスのデザイン*/
-input{
-    width:250px;                                        /*幅*/
-    height:20px;                                        /*高さ*/
-    padding:10px;
-    font-family:'Courier New', Courier, monospace;      /*!フォントの種類*/
-    font-size:15px;
-    text-align:center;                                  /*中央ぞろえ*/
-    border-radius:10px;                                 /*テキストボックスの角を丸くする*/
-    outline:none;                                       /*外枠なし*/
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e7e2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-/*ボタンのデザイン*/
-button{
-   width:75px;      
-   height:45px;     
-   background-color:#c299ff;    
-   color:#000;                  
-   border:0.8px solid #000;     
-   border-radius:50px;                                          /*!ボタンの形*/
-   font-size:16px;
-   outline-color: #000;
-   font-family: 'Courier New', Courier, monospace;              /*!フォントの種類*/
-   cursor:pointer;                                              /*カーソルが合った時の色*/
-   transition:background-color 0.3 ease,border-color 0.3s ease;
-}
-
-/*ボタンをクリックすると色が変わる*/
-button:hover{
-    background-color:#9057ff;
-}
-
-.result-container {
-    position: fixed;                                            /* ポップアップを画面上に固定 */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);                           /* !中央に配置 */
-    display: none;                                              /* 初期状態では非表示 */
-    z-index: 1000;                                              /* (他の要素の上に表示)*/
-}
-
-.result-container img {
-    height: auto;                                             /* 高さを自動調整 */
-    width: auto;                                              /* 幅を自動調整 */
-    display: block;                                           /* 不要な余白を取り除く */
-    margin: 0 auto;     
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+.container {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);                   /* 背景を半透明にする */
-    display: none;                                            /* 初期状態では非表示 */
-   
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
 }
+
+.title-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.title-image {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+.quiz-section {
+    position: relative;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid #a88ba6;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.submit-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #a88ba6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.usagi-image {
+    width: 30%;
+    margin-top: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    width: 45%;
+    perspective: 1000px;
+}
+
+.card-checkbox {
+    display: none;
+}
+
+.card-inner {
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+}
+
+.card-checkbox:checked + .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.card-front {
+    background-color: #e0e0e0;
+}
+
+.hint-cover {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hint-text {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.decoration {
+    position: absolute;
+    width: 50px;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+
